@@ -5,7 +5,7 @@ import 'package:flutter/src/widgets/placeholder.dart';
 import 'package:quiz_app/constants/colors.dart';
 import 'package:quiz_app/constants/images.dart';
 import 'package:quiz_app/quiz_screen.dart';
-import 'package:quiz_app/text_style.dart';
+import 'package:quiz_app/widgets/text_style.dart';
 
 class Onboarding extends StatelessWidget {
   const Onboarding({super.key});

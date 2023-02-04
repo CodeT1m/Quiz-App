@@ -4,6 +4,8 @@ import 'package:http/http.dart' as http;
 
 var link = "https://opentdb.com/api.php?amount=20";
 
+// get quiz data from API link
+
 getQuiz() async{
   var res = await http.get(Uri.parse(link));
 

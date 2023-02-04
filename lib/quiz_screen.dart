@@ -7,7 +7,7 @@ import 'package:flutter/src/widgets/placeholder.dart';
 import 'package:quiz_app/api_services.dart';
 import 'package:quiz_app/constants/colors.dart';
 import 'package:quiz_app/constants/images.dart';
-import 'package:quiz_app/text_style.dart';
+import 'package:quiz_app/widgets/text_style.dart';
 
 class QuizScreen extends StatefulWidget {
   const QuizScreen({super.key});
@@ -22,11 +22,11 @@ class _QuizScreenState extends State<QuizScreen> {
   var currentQuestionIndex = 0;
   int points = 0;
 
-  startTimer() {
+  startTimer() { // start quiz timer
     timer = Timer.periodic(const Duration(seconds: 1), (timer) {
       setState(() {
         if (seconds > 0) {
-          seconds--;
+          seconds--;  // decrease by 1
         } else {
           timer.cancel();
         }
@@ -59,7 +59,7 @@ class _QuizScreenState extends State<QuizScreen> {
   void initState() {
     // TODO: implement initState
     super.initState();
-    quiz = getQuiz(); // on getting to this page, collect all d API quiz
+    quiz = getQuiz(); // on getting to this quiz screen, collect all d API quiz
     startTimer();
   }
 
@@ -208,13 +208,13 @@ class _QuizScreenState extends State<QuizScreen> {
                                             Colors.red; // otherwise red
                                       }
 
-                                      if (currentQuestionIndex < data.length - 1) {
+                                      if (currentQuestionIndex < data.length - 1) { // after answering each question
                                         Future.delayed(const Duration(seconds: 1),
                                             () {
-                                          isLoaded = false;
-                                          currentQuestionIndex++;
-                                          resetColors();
-                                          timer!.cancel();
+                                          isLoaded = false; // reload the next question
+                                          currentQuestionIndex++; // increase question index
+                                          resetColors();  // reset all option colors
+                                          timer!.cancel();  // reset the timer to 60secs
                                           seconds=60;
                                           startTimer();
                                         });
@@ -243,7 +243,7 @@ class _QuizScreenState extends State<QuizScreen> {
                       ),
                     );
                   } else {
-                    return Center(
+                    return const Center(
                       child: CircularProgressIndicator(
                           valueColor: AlwaysStoppedAnimation(Colors.white)),
                     );

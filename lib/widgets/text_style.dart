@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:quiz_app/constants/colors.dart';
 
+// custom text widgets
+
 Widget normalText(String? text, Color? color, double? size,) {
   
  return Text(
